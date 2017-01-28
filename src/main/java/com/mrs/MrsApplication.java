@@ -13,5 +13,4 @@ public class MrsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MrsApplication.class, args);
 	}
-	// adding comment
 }

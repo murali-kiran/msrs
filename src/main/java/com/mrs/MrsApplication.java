@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan
 @EnableAutoConfiguration
 public class MrsApplication {
-
+	// kiran sample
 	public static void main(String[] args) {
 		SpringApplication.run(MrsApplication.class, args);
 	}

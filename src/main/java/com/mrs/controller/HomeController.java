@@ -17,7 +17,7 @@ public class HomeController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/index.html")
     String all(Model model) {
-        model.addAttribute("emps", this.empRepo.findAll());
+        //model.addAttribute("emps", this.empRepo.findAll());
         return "index";
     }
 }

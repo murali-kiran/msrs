@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 /**
  * The persistent class for the nominee database table.
- * 
+ * @author kiran
  */
 @Entity
 @Table(name="nominee")

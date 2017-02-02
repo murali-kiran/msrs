@@ -5,11 +5,14 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
+/**
+ * @author kiran
+ */
 @SpringBootApplication
 @ComponentScan
 @EnableAutoConfiguration
 public class MrsApplication {
-	 // murali 
+
 	public static void main(String[] args) {
 		SpringApplication.run(MrsApplication.class, args);
 	}

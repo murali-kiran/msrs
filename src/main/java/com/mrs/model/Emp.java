@@ -18,7 +18,7 @@ import javax.persistence.TemporalType;
 
 /**
  * The persistent class for the emp database table.
- * 
+ * @author kiran 
  */
 @Entity
 @Table(name="emp")
@@ -218,6 +218,23 @@ public class Emp implements Serializable {
 		this.nominees = nominees;
 	}
 
+	@Override
+	public String toString() {
+		return "Emp [empid=" + empid + ", " + (aatharnumber != null ? "aatharnumber=" + aatharnumber + ", " : "")
+				+ (adress1 != null ? "adress1=" + adress1 + ", " : "")
+				+ (adress2 != null ? "adress2=" + adress2 + ", " : "")
+				+ (createdtime != null ? "createdtime=" + createdtime + ", " : "")
+				+ (district != null ? "district=" + district + ", " : "") + (dob != null ? "dob=" + dob + ", " : "")
+				+ (doj != null ? "doj=" + doj + ", " : "") + (dor != null ? "dor=" + dor + ", " : "")
+				+ (email != null ? "email=" + email + ", " : "")
+				+ (firstname != null ? "firstname=" + firstname + ", " : "")
+				+ (lastname != null ? "lastname=" + lastname + ", " : "")
+				+ (modifiedtime != null ? "modifiedtime=" + modifiedtime + ", " : "")
+				+ (pancard != null ? "pancard=" + pancard + ", " : "") + (phone != null ? "phone=" + phone + ", " : "")
+				+ (pincode != null ? "pincode=" + pincode + ", " : "") + (state != null ? "state=" + state + ", " : "")
+				+ (nominees != null ? "nominees=" + nominees : "") + "]";
+	}
+
 	/*public Nominee addNominee(Nominee nominee) {
 		getNominees().add(nominee);
 		nominee.setEmp(this);
@@ -232,4 +249,5 @@ public class Emp implements Serializable {
 		return nominee;
 	}
 */
+	
 }

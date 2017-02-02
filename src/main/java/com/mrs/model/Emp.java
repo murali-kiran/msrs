@@ -18,7 +18,7 @@ import javax.persistence.TemporalType;
 
 /**
  * The persistent class for the emp database table.
- * 
+ * @author kiran 
  */
 @Entity
 @Table(name="emp")

@@ -1,24 +1,16 @@
 package com.mrs.model;
 
 import java.io.Serializable;
-import java.math.BigInteger;
+import javax.persistence.*;
 import java.util.Date;
+import java.sql.Timestamp;
+import java.math.BigInteger;
 import java.util.List;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 
 /**
  * The persistent class for the emp database table.
- * @author kiran 
+ * 
  */
 @Entity
 @Table(name="emp")
@@ -26,7 +18,7 @@ public class Emp implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int empid;
 
 	private BigInteger aatharnumber;
@@ -35,8 +27,7 @@ public class Emp implements Serializable {
 
 	private String adress2;
 
-	@Temporal(TemporalType.DATE)
-	private Date createdtime;
+	private Timestamp createdtime;
 
 	private String district;
 
@@ -53,10 +44,11 @@ public class Emp implements Serializable {
 
 	private String firstname;
 
+	private byte gender;
+
 	private String lastname;
 
-	@Temporal(TemporalType.DATE)
-	private Date modifiedtime;
+	private Timestamp modifiedtime;
 
 	private String pancard;
 
@@ -67,9 +59,13 @@ public class Emp implements Serializable {
 	private String state;
 
 	//bi-directional many-to-one association to Nominee
-	@OneToMany  //(mappedBy="emp")
+	@OneToMany
 	@JoinColumn(name="empid")
 	private List<Nominee> nominees;
+	
+	@OneToMany
+	@JoinColumn(name="empid")
+	private List<Incident> incidents;
 
 	public Emp() {
 	}
@@ -106,11 +102,11 @@ public class Emp implements Serializable {
 		this.adress2 = adress2;
 	}
 
-	public Date getCreatedtime() {
-		return this.createdtime ==null ? new Date() : this.createdtime;
+	public Timestamp getCreatedtime() {
+		return this.createdtime;
 	}
 
-	public void setCreatedtime(Date createdtime) {
+	public void setCreatedtime(Timestamp createdtime) {
 		this.createdtime = createdtime;
 	}
 
@@ -162,6 +158,14 @@ public class Emp implements Serializable {
 		this.firstname = firstname;
 	}
 
+	public byte getGender() {
+		return this.gender;
+	}
+
+	public void setGender(byte gender) {
+		this.gender = gender;
+	}
+
 	public String getLastname() {
 		return this.lastname;
 	}
@@ -170,11 +174,11 @@ public class Emp implements Serializable {
 		this.lastname = lastname;
 	}
 
-	public Date getModifiedtime() {
-		return this.modifiedtime ==null ? new Date() : this.modifiedtime;
+	public Timestamp getModifiedtime() {
+		return this.modifiedtime;
 	}
 
-	public void setModifiedtime(Date modifiedtime) {
+	public void setModifiedtime(Timestamp modifiedtime) {
 		this.modifiedtime = modifiedtime;
 	}
 
@@ -218,6 +222,14 @@ public class Emp implements Serializable {
 		this.nominees = nominees;
 	}
 
+	public List<Incident> getIncidents() {
+		return incidents;
+	}
+
+	public void setIncidents(List<Incident> incidents) {
+		this.incidents = incidents;
+	}
+
 	@Override
 	public String toString() {
 		return "Emp [empid=" + empid + ", " + (aatharnumber != null ? "aatharnumber=" + aatharnumber + ", " : "")
@@ -227,27 +239,12 @@ public class Emp implements Serializable {
 				+ (district != null ? "district=" + district + ", " : "") + (dob != null ? "dob=" + dob + ", " : "")
 				+ (doj != null ? "doj=" + doj + ", " : "") + (dor != null ? "dor=" + dor + ", " : "")
 				+ (email != null ? "email=" + email + ", " : "")
-				+ (firstname != null ? "firstname=" + firstname + ", " : "")
+				+ (firstname != null ? "firstname=" + firstname + ", " : "") + "gender=" + gender + ", "
 				+ (lastname != null ? "lastname=" + lastname + ", " : "")
 				+ (modifiedtime != null ? "modifiedtime=" + modifiedtime + ", " : "")
 				+ (pancard != null ? "pancard=" + pancard + ", " : "") + (phone != null ? "phone=" + phone + ", " : "")
 				+ (pincode != null ? "pincode=" + pincode + ", " : "") + (state != null ? "state=" + state + ", " : "")
-				+ (nominees != null ? "nominees=" + nominees : "") + "]";
+				+ (nominees != null ? "nominees=" + nominees + ", " : "")
+				+ (incidents != null ? "incidents=" + incidents : "") + "]";
 	}
-
-	/*public Nominee addNominee(Nominee nominee) {
-		getNominees().add(nominee);
-		nominee.setEmp(this);
-
-		return nominee;
-	}
-
-	public Nominee removeNominee(Nominee nominee) {
-		getNominees().remove(nominee);
-		nominee.setEmp(null);
-
-		return nominee;
-	}
-*/
-	
 }

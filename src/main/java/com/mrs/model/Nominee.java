@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 /**
  * The persistent class for the nominee database table.
- * @author kiran
+ * 
  */
 @Entity
 @Table(name="nominee")
@@ -14,7 +14,7 @@ public class Nominee implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int nomineeid;
 
 	private String address1;
@@ -29,16 +29,11 @@ public class Nominee implements Serializable {
 
 	private String pincode;
 
-	private int relationship;
+	private String relationship;
 
 	private String state;
 	
 	private int empid;
-
-	//bi-directional many-to-one association to Emp
-	/*@ManyToOne
-	@JoinColumn(name="empid")
-	private Emp emp;*/
 
 	public Nominee() {
 	}
@@ -99,11 +94,11 @@ public class Nominee implements Serializable {
 		this.pincode = pincode;
 	}
 
-	public int getRelationship() {
+	public String getRelationship() {
 		return this.relationship;
 	}
 
-	public void setRelationship(int relationship) {
+	public void setRelationship(String relationship) {
 		this.relationship = relationship;
 	}
 
@@ -123,12 +118,14 @@ public class Nominee implements Serializable {
 		this.empid = empid;
 	}
 
-	/*public Emp getEmp() {
-		return this.emp;
+	@Override
+	public String toString() {
+		return "Nominee [nomineeid=" + nomineeid + ", " + (address1 != null ? "address1=" + address1 + ", " : "")
+				+ (address2 != null ? "address2=" + address2 + ", " : "") + "age=" + age + ", "
+				+ (district != null ? "district=" + district + ", " : "") + (name != null ? "name=" + name + ", " : "")
+				+ (pincode != null ? "pincode=" + pincode + ", " : "")
+				+ (relationship != null ? "relationship=" + relationship + ", " : "")
+				+ (state != null ? "state=" + state + ", " : "") + "empid=" + empid + "]";
 	}
-
-	public void setEmp(Emp emp) {
-		this.emp = emp;
-	}*/
-
+	
 }

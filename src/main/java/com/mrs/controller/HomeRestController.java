@@ -3,6 +3,7 @@ package com.mrs.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,6 +17,7 @@ import com.mrs.service.HomeService;
 
 @RestController
 @RequestMapping(value="/rest")
+@CrossOrigin(origins = "*")
 public class HomeRestController {
 
 	@Autowired
@@ -48,7 +50,7 @@ public class HomeRestController {
 	@RequestMapping(value="/getAllOfficeLocation",method = RequestMethod.GET)
     public List<OfficeLocation> getAllOfficeLocation() {
         return homeService.getAllOfficeLocation();
-    }
+    }@CrossOrigin(origins = "http://localhost:9000")
 	@RequestMapping(value="/getOfficeLocation",method = RequestMethod.GET)
     public OfficeLocation getOfficeLocation(@RequestParam(value="id",required=true) Integer id) {
         return homeService.getOfficeLocationById(id);

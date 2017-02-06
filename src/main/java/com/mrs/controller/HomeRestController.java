@@ -50,7 +50,7 @@ public class HomeRestController {
 	@RequestMapping(value="/getAllOfficeLocation",method = RequestMethod.GET)
     public List<OfficeLocation> getAllOfficeLocation() {
         return homeService.getAllOfficeLocation();
-    }@CrossOrigin(origins = "http://localhost:9000")
+    }
 	@RequestMapping(value="/getOfficeLocation",method = RequestMethod.GET)
     public OfficeLocation getOfficeLocation(@RequestParam(value="id",required=true) Integer id) {
         return homeService.getOfficeLocationById(id);

@@ -23,12 +23,12 @@ body {font-size:16px;}
   <div class="ymc-container">
     <h3 class="ymc-padding-64"><b>YMC<br/>INIDA</b></h3>
   </div>
-  <a href="#" onclick="ymc_close()" class="ymc-padding ymc-hover-white">Home</a> 
-  <a href="#showcase" onclick="ymc_close()" class="ymc-padding ymc-hover-white">Search Employee</a> 
-  <a href="#services" onclick="ymc_close()" class="ymc-padding ymc-hover-white">Create Employee</a> 
-  <a href="#designers" onclick="ymc_close()" class="ymc-padding ymc-hover-white">Employee List</a> 
-  <a href="#packages" onclick="ymc_close()" class="ymc-padding ymc-hover-white">About</a> 
-  <a href="#contact" onclick="ymc_close()" class="ymc-padding ymc-hover-white">Contact</a>
+  <a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">Home</a> 
+  <a th:href="@{/home/searchEmp}" class="ymc-padding ymc-hover-white">Search Employee</a> 
+  <a href="#services" class="ymc-padding ymc-hover-white">Create Employee</a> 
+  <a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">Employee List</a> 
+  <a href="#packages"  class="ymc-padding ymc-hover-white">About</a> 
+  <a href="#contact"  class="ymc-padding ymc-hover-white">Contact</a>
 </nav>
 
 <!-- Top menu on small screens -->

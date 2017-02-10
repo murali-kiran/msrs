@@ -40,15 +40,19 @@ public class HomeController {
     }
 	@PostMapping( value = "/searchEmp")
     String getSearch(@ModelAttribute Emp emp, BindingResult bindingresult, Model model) {
-		System.out.println("ggg"+bindingresult);
 		model.addAttribute("emps", homeService.getAllEmployeesByEmp(emp));
         return "searchEmp";
     }
-	
 	@RequestMapping(value="/viewEmp",method = RequestMethod.GET)
     public String getEmp(@RequestParam(value="empid",required=true) Integer empid, Model model) {
 		model.addAttribute("emp", homeService.getEmpById(empid));
 		return "viewEmp";
+    }
+	@GetMapping( value = "/empList")
+    String getEmpList(@ModelAttribute Emp emp, BindingResult bindingresult, Model model) {
+		model.addAttribute("emps", homeService.getAllEmployees());
+		model.addAttribute("emp", null);
+        return "searchEmp";
     }
 	@GetMapping(value = "/createEmp")
     String createEmpForm(@RequestParam(value = "empid", required = false) Integer empid,Model model) {

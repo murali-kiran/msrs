@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
  * @author kiran
@@ -15,9 +17,17 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableAutoConfiguration
 @EnableWebMvc
 @Configuration
-public class MrsApplication {
+public class MrsApplication extends WebMvcConfigurerAdapter{
 
 	public static void main(String[] args) {
 		SpringApplication.run(MrsApplication.class, args);
+	}
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+	    
+		String[] staticResourceMappingPath = { "classpath:/static/" };
+
+	    registry.addResourceHandler("/resources/**").addResourceLocations(
+	            staticResourceMappingPath);
 	}
 }

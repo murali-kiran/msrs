@@ -61,7 +61,7 @@ public class HomeController {
 	@PostMapping(value = "/createEmp")
     String createEmpSubmit(@ModelAttribute Emp emp,BindingResult bindingResult) {
 		homeService.createEmp(emp);
-		return "redirect:/home/index.html";
+		return "redirect:/home/searchEmp";
     }
 	
 	@InitBinder

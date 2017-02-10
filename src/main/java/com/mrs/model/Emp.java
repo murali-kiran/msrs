@@ -1,11 +1,21 @@
 package com.mrs.model;
 
 import java.io.Serializable;
-import javax.persistence.*;
-import java.util.Date;
-import java.sql.Timestamp;
 import java.math.BigInteger;
+import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 /**
@@ -27,16 +37,20 @@ public class Emp implements Serializable {
 
 	private String adress2;
 
-	private Timestamp createdtime;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date createdtime;
 
 	private String district;
 
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date dob;
 
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date doj;
 
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date dor;
 
@@ -48,7 +62,8 @@ public class Emp implements Serializable {
 
 	private String lastname;
 
-	private Timestamp modifiedtime;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date modifiedtime;
 
 	private String pancard;
 
@@ -60,11 +75,11 @@ public class Emp implements Serializable {
 
 	//bi-directional many-to-one association to Nominee
 	@OneToMany
-	@JoinColumn(name="empid")
+	@JoinColumn(name="empid",insertable=false,updatable=false)
 	private List<Nominee> nominees;
 	
 	@OneToMany
-	@JoinColumn(name="empid")
+	@JoinColumn(name="empid",insertable=false,updatable=false)
 	private List<Incident> incidents;
 
 	public Emp() {
@@ -102,11 +117,11 @@ public class Emp implements Serializable {
 		this.adress2 = adress2;
 	}
 
-	public Timestamp getCreatedtime() {
+	public Date getCreatedtime() {
 		return this.createdtime;
 	}
 
-	public void setCreatedtime(Timestamp createdtime) {
+	public void setCreatedtime(Date createdtime) {
 		this.createdtime = createdtime;
 	}
 
@@ -174,11 +189,11 @@ public class Emp implements Serializable {
 		this.lastname = lastname;
 	}
 
-	public Timestamp getModifiedtime() {
+	public Date getModifiedtime() {
 		return this.modifiedtime;
 	}
 
-	public void setModifiedtime(Timestamp modifiedtime) {
+	public void setModifiedtime(Date modifiedtime) {
 		this.modifiedtime = modifiedtime;
 	}
 

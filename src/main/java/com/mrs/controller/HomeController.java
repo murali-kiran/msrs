@@ -1,6 +1,7 @@
 package com.mrs.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,16 +24,32 @@ import com.mrs.service.HomeService;
 @Controller
 @RequestMapping(value="/home")
 public class HomeController {
-	
 	@Autowired
 	HomeService homeService;
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/index.html")
     String all(Model model) {
-        //model.addAttribute("emps", this.empRepo.findAll());
+        model.addAttribute("emps", homeService.getAllEmployees());
         return "index";
     }
+	@GetMapping(value = "/searchEmp")
+    String showSearch(Model model) {
+		model.addAttribute("emp", new Emp());
+		model.addAttribute("emps", new ArrayList<>());
+        return "searchEmp";
+    }
+	@PostMapping( value = "/searchEmp")
+    String getSearch(@ModelAttribute Emp emp, BindingResult bindingresult, Model model) {
+		System.out.println("ggg"+bindingresult);
+		model.addAttribute("emps", homeService.getAllEmployeesByEmp(emp));
+        return "searchEmp";
+    }
 	
+	@RequestMapping(value="/viewEmp",method = RequestMethod.GET)
+    public String getEmp(@RequestParam(value="empid",required=true) Integer empid, Model model) {
+		model.addAttribute("emp", homeService.getEmpById(empid));
+		return "viewEmp";
+    }
 	@GetMapping(value = "/createEmp")
     String createEmpForm(@RequestParam(value = "empid", required = false) Integer empid,Model model) {
 		Emp emp = null;

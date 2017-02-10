@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<!--  <div th:each ="emp : ${emps}">
+		<b th:text ="${emp.empid}">ID</b>
+		<span th:text ="${emp.firstname}">FirstName</span>
+	</div>-->
+	<h2>Search Employee</h2>
+	 <form action="#" th:action="@{/home/searchEmp}" th:object="${emp}" method="post">
+	 	<table>
+		 	<tr><td> Id: </td><td><input type="text" id="empid" name="empid" th:field="*{empid}" /></td></tr>
+	        <tr><td> First Name: </td><td><input type="text" id="firstname" name="firstname" th:field="*{firstname}" /></td></tr>
+	        <tr><td> Last Name: </td><td><input type="text" id="lastname" name="lastname" th:field="*{lastname}" /></td></tr>
+	        <tr><td> DOB: </td><td><input type="date" id="dob" name="dob" th:field="*{dob}" /> </td></tr>
+	        <tr><td><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></td></tr>
+        </table>
+    </form>
+	
+	
+	
+<div th:if="${!emps.empty}">
+	
+	<table>
+	<tr>
+		<th>ID</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>DOB</th>
+		<th>Email</th>
+		<th>Phone</th>
+		<th>View</th>
+	</tr>
+	
+	
+
+	<tr th:each ="emp : ${emps}">
+		<td th:text ="${emp.empid}"></td>
+		<td th:text ="${emp.firstname}"></td>
+		<td th:text ="${emp.lastname}"></td>
+		<td th:text ="${emp.dob}"></td>
+		<td th:text ="${emp.email}"></td>
+		<td th:text ="${emp.phone}"></td>
+		<td><a th:href="@{/home/viewEmp(empid=${emp.empid})}" >view</a></td>
+	</tr>
+	
+	</table>
+	</div>
+</body>
+</html>

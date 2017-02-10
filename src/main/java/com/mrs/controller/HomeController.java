@@ -36,16 +36,18 @@ public class HomeController {
     }
 	@PostMapping( value = "/searchEmp")
     String getSearch(@ModelAttribute Emp emp, BindingResult bindingresult, Model model) {
-		System.out.println("ggg"+bindingresult);
 		model.addAttribute("emps", service.getAllEmployeesByEmp(emp));
-		//model.addAttribute("emp", new Emp());
-		//model.addAttribute("emps", new ArrayList<>());
         return "searchEmp";
     }
-	
 	@RequestMapping(value="/viewEmp",method = RequestMethod.GET)
     public String getEmp(@RequestParam(value="empid",required=true) Integer empid, Model model) {
 		model.addAttribute("emp", service.getEmpById(empid));
 		return "viewEmp";
+    }
+	@GetMapping( value = "/empList")
+    String getEmpList(@ModelAttribute Emp emp, BindingResult bindingresult, Model model) {
+		model.addAttribute("emps", service.getAllEmployees());
+		model.addAttribute("emp", null);
+        return "searchEmp";
     }
 }

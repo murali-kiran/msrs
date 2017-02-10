@@ -1,5 +1,6 @@
 package com.mrs.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -58,9 +59,13 @@ public class HomeServiceImpl implements HomeService{
 	@Override
 	public Emp createEmp(Emp emp) {
 		logger.info("Saving Employee "+emp);
+		if(emp.getEmpid()==0){
+			emp.setCreatedtime(new Date());
+		}
+		emp.setModifiedtime(new Date());
 		return empRepo.save(emp);
 	}
-
+	
 	@Override
 	public Nominee createNominee(Nominee nominee) {
 		logger.info("Saving Nominee "+nominee);

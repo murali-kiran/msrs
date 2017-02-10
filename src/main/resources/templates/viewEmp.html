@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>View Client</h1>
+<h1>View Client</h1>
+<table>
+	<tr><td>EmpID : </td><td th:text ="${ emp.empid}"></td></tr>
+	<tr><td>First Name : </td><td th:text ="${ emp.firstname}"></td></tr>
+	<tr><td>Last Name : </td><td th:text ="${ emp.lastname}"></td></tr>
+	<tr><td>DOB : </td><td th:text ="${ emp.dob}"></td></tr>
+	<tr><td>DOJ : </td><td th:text ="${ emp.doj}"></td></tr>
+	<tr><td>DOR : </td><td th:text ="${ emp.dor}"></td></tr>
+	<tr><td>PHONE: </td><td th:text ="${ emp.phone}"></td></tr>
+	<!--<tr><td th:text ="${ emp.address1}"></td></tr>
+	<tr><td th:text ="${ emp.address2}"></td></tr>
+	<tr><td th:text ="${ emp.email}"></td></tr>
+	 
+	<tr><td th:text ="${ emp.gpRecorded}"></td></tr>
+	<tr><td th:text ="${ emp.fmeRecorded}"></td></tr>
+	<tr><td th:text ="${ emp.niNumber}"></td></tr>
+	<tr><td th:text ="${ emp.mec}"></td></tr>
+	<tr><td th:text ="${ emp.sameGenderReqd}"></td></tr>
+	<tr><td th:text ="${ emp.requestedLang}"></td></tr>
+	<tr><td th:text ="${ emp.pvcode}"></td></tr>
+	<tr><td th:text ="${ emp.lastVerfiedDate}"></td></tr> -->
+</table>
+
+<h1>Appointment Details</h1>
+<table>
+	<tr><td th:text ="${ emp.firstname}"></td> <td th:text ="${ emp.phone}"></td></tr>
+	<!-- <tr><td th:text ="${ emp.address}"></td></tr> -->
+</table>	
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>MSRS|Create Emp</title>
+</head>
+<body>
+
+	<form action="#" th:action="@{/home/createEmp}" th:object="${emp}" method="post">
+		<div th:switch="*{empid}">
+		<p th:case="'0'"></p>
+		<p th:case="*">
+		<input type="hidden" th:field="*{empid}" th:value="*{empid}" />
+		<input type="hidden" th:field="*{createdtime}" th:value="*{createdtime}" />
+		</p>
+		</div>
+		<table>
+        <tr><td>First Name</td><td> <input type="text" th:field="*{firstname}" /></td></tr>
+        <tr><td>Last Name</td><td><input type="text" th:field="*{lastname}" /></td></tr>
+        <tr><td>Gender </td><td><select  th:field="*{gender}"><option value="0">Male</option><option value="1">Female</option></select></td></tr>
+        <tr><td>Date of Birthday</td><td><input class="date" type="date" name="dob" th:value="*{dob}" /></td></tr>
+        <tr><td>phone</td><td><input type="text" th:field="*{phone}" /></td></tr>
+        <tr><td>email</td><td><input type="text" th:field="*{email}" /></td></tr>
+        <tr><td>Aathar</td><td><input type="text" th:field="*{aatharnumber}" /></td></tr>
+        <tr><td>PanCard</td><td><input type="text" th:field="*{pancard}" /></td></tr>
+        <tr><td>Date of Joining</td><td><input type="date" th:field="*{doj}" /></td></tr>
+        <tr><td>Date of Releaving</td><td><input type="date" th:field="*{dor}" /></td></tr>
+        <tr><td>Address</td></tr>
+        <tr><td>Home/Plat/Street</td><td><input type="text" th:field="*{adress1}" /></td></tr>
+        <tr><td>City</td><td><input type="text" th:field="*{adress2}" /></td></tr>
+        <tr><td>District</td><td><input type="text" th:field="*{district}" /></td></tr>
+        <tr><td>State</td><td><input type="text" th:field="*{state}" /></td></tr>
+        <tr><td>Pincode</td><td><input type="text" th:field="*{pincode}" /></td></tr>
+	
+        <tr><td colspan="2"><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></td></tr>
+        </table>
+    </form>
+</body>
+</html>

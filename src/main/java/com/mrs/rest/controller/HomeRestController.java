@@ -1,4 +1,4 @@
-package com.mrs.controller;
+package com.mrs.rest.controller;
 
 import java.util.List;
 

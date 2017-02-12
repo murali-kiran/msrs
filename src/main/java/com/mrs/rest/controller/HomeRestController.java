@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mrs.model.BenefitType;
 import com.mrs.model.Emp;
+import com.mrs.model.Incident;
 import com.mrs.model.OfficeLocation;
 import com.mrs.service.HomeService;
 
@@ -54,5 +55,9 @@ public class HomeRestController {
 	@RequestMapping(value="/getOfficeLocation",method = RequestMethod.GET)
     public OfficeLocation getOfficeLocation(@RequestParam(value="id",required=true) Integer id) {
         return homeService.getOfficeLocationById(id);
+    }
+	@RequestMapping(value="/createIncident",method = RequestMethod.POST)
+    public Incident createIncident(@RequestBody Incident incident) {
+        return homeService.createIncident(incident);
     }
 }

@@ -2,6 +2,7 @@ package com.mrs.rest.controller;
 
 import java.util.List;
 
+import com.mrs.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,10 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mrs.model.BenefitType;
-import com.mrs.model.Emp;
-import com.mrs.model.Incident;
-import com.mrs.model.OfficeLocation;
 import com.mrs.service.HomeService;
 
 @RestController
@@ -59,5 +56,10 @@ public class HomeRestController {
 	@RequestMapping(value="/createIncident",method = RequestMethod.POST)
     public Incident createIncident(@RequestBody Incident incident) {
         return homeService.createIncident(incident);
+    }
+
+    @RequestMapping(value="/createNominee",method = RequestMethod.POST)
+    public Nominee createNominee(@RequestBody Nominee nominee) {
+        return homeService.createNominee(nominee);
     }
 }

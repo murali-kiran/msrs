@@ -1,7 +1,7 @@
 
 <!DOCTYPE HTML>
 <html xmlns="http://www.ymc.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org" >
+	xmlns:th="http://www.thymeleaf.org" layout:decorator="layout/default">
 <title>YMC INDIA</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -10,29 +10,8 @@
 
 <link rel="stylesheet" href="/resources/css/style_new.css" />
 <body style="margin-bottom:50px;">
+	<section layout:fragment="content">
 	
-	
-<!-- Sidenav/menu -->
-<nav class="ymc-sidenav ymc-red ymc-collapse ymc-top ymc-large ymc-padding" style="z-index:3;width:300px;font-weight:bold" id="mySidenav"><br/>
-  <a href="javascript:void(0)" onclick="ymc_close()" class="ymc-padding-xlarge ymc-hide-large ymc-display-topleft ymc-hover-white" style="width:100%;font-size:22px">Close Menu</a>
-  <div class="ymc-container">
-    <h3 class="ymc-padding-64"><b>YMC<br/>INIDA</b></h3>
-  </div>
-  
-
-  <a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">Home</a> 
-  <a th:href="@{/home/searchEmp}" class="ymc-padding ymc-hover-white">Search Employee</a> 
-  <a th:href="@{/home/createEmp}" class="ymc-padding ymc-hover-white">Create Employee</a> 
-  <a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">Employee List</a> 
-  <a href="#packages"  class="ymc-padding ymc-hover-white">About</a> 
-  <a href="#contact"  class="ymc-padding ymc-hover-white">Contact</a>
-</nav>
-<!-- Top menu on small screens -->
-<header class="ymc-container ymc-top ymc-hide-large ymc-red ymc-xlarge ymc-padding">
-  <a href="javascript:void(0)" class="ymc-btn ymc-red ymc-border ymc-border-white ymc-margin-right" onclick="ymc_open()">☰</a>
-  <span>YMC INIDA PVT LTD</span>
-</header>
-
 <div class="ymc-main" style="margin-left:340px;margin-right:40px">
 
   <!-- Header -->
@@ -90,8 +69,7 @@
 	</div>
 	</div>
 	</div>
-	
+	</section>
 </body>
-<div id="footer" class="footercss" >Powered by YMC</div>
 
 </html>

@@ -1,4 +1,4 @@
-<section th:fragment="menu">
+<!-- <section th:fragment="menu">
 
 	<a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">Home</a>
 	<br /> <a th:href="@{/home/searchEmp}"
@@ -8,4 +8,79 @@
 		class="ymc-padding ymc-hover-white">Employee List</a> <br /> <a
 		href="#packages" class="ymc-padding ymc-hover-white">About</a> <br />
 	<a href="#contact" class="ymc-padding ymc-hover-white">Contact</a>
+</section> -->
+
+
+<!-- <section th:fragment="menu">
+
+<div style="width:100%;">
+<ul id="navmenu">
+  <li><a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">Home</a></li>
+  <li><a th:href="@{/home/searchEmp}" class="ymc-padding ymc-hover-white">Search Employee +</a>
+    <ul>
+      <li><a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">Home +</a>
+        <ul>
+          <li><a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">Home - 1</a></li>
+          <li><a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">Home - 2</a></li>
+          <li><a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">Home - 3</a></li>
+          <li><a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">Home - 4</a></li>
+        </ul>
+      </li>
+      <li><a th:href="@{/home/createEmp}" class="ymc-padding ymc-hover-white">Create Employee</a></li>
+      <li><a th:href="@{/home/empList}"	class="ymc-padding ymc-hover-white">Employee List</a></li>
+    </ul>
+  </li>
+  <li><a href="http://www.free-css.com/">Learn +</a>
+    <ul>
+      <li><a href="http://www.free-css.com/">Fireworks +</a>
+        <ul>
+          <li><a href="http://www.free-css.com/">aquaButton</a></li>
+          <li><a href="http://www.free-css.com/">aquaButton2</a></li>
+          <li><a href="http://www.free-css.com/">waterDrop</a></li>
+          <li><a href="http://www.free-css.com/">lightFX</a></li>
+          <li><a href="http://www.free-css.com/">lightFX2</a></li>
+        </ul>
+      </li>
+      <li><a href="http://www.free-css.com/">CSS +</a>
+        <ul>
+          <li><a href="http://www.free-css.com/">footerStick</a></li>
+          <li><a href="http://www.free-css.com/">spriteNav</a></li>
+          <li><a href="http://www.free-css.com/">@import</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="http://www.free-css.com/">Info</a></li>
+  <li><a rel="nofollow" target="_blank" href="http://solardreamstudios.com/">Solardreamstudios</a></li>
+</ul>
+</div>
+</section> -->
+
+
+<section style="display:inline;" th:fragment="menu">
+
+<button class="accordion">Employee</button>
+<div class="panel">
+  <p class="sub_panel"><a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">-> Employee List</a></p>
+  <p class="sub_panel"><a th:href="@{/home/searchEmp}" class="ymc-padding ymc-hover-white">-> Employee Search</a></p>
+  <p class="sub_panel"><a th:href="@{/home/createEmp}" class="ymc-padding ymc-hover-white">-> Create Employee</a></p>
+  <p class="sub_panel"><a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">-> Update Employee</a></p>
+</div>
+<div style="clear:both"></div>
+<button class="accordion">Work List</button>
+<div class="panel">
+  <p class="sub_panel"><a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">-> Employee List</a></p>
+  <p class="sub_panel"><a th:href="@{/home/searchEmp}" class="ymc-padding ymc-hover-white">-> Employee Search</a></p>
+  <p class="sub_panel"><a th:href="@{/home/createEmp}" class="ymc-padding ymc-hover-white">-> Create Employee</a></p>
+  <p class="sub_panel"><a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">-> Update Employee</a></p>
+</div>
+<div style="clear:both"></div>
+<button class="accordion">Analytics</button>
+<div class="panel">
+  <p class="sub_panel"><a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">-> Employee List</a></p>
+  <p class="sub_panel"><a th:href="@{/home/searchEmp}" class="ymc-padding ymc-hover-white">-> Employee Search</a></p>
+  <p class="sub_panel"><a th:href="@{/home/createEmp}" class="ymc-padding ymc-hover-white">-> Create Employee</a></p>
+  <p class="sub_panel"><a th:href="@{/home/empList}" class="ymc-padding ymc-hover-white">-> Update Employee</a></p>
+</div>
+<div style="clear:both"></div>
 </section>

@@ -356,3 +356,180 @@ input[type=checkbox].ymc-check:disabled+.ymc-validate,input[type=radio].ymc-radi
 .footercss{
 height:20px;margin-top:5px;padding-right:8px;width:100%;position:fixed;padding-bottom:0px;text-align:right;padding-top:0px;
 }
+
+
+
+
+
+
+
+
+
+/**************************************************************/
+
+h1,h2,h3,h4,h5,h6,.ymc-slim,.ymc-wide{font-family:"Segoe UI",Arial,sans-serif}
+h1{font-size:36px}h2{font-size:30px}h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}
+body {
+    background: #FFF;
+    color: #666;
+}
+
+h1 {
+    font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-size:16px;
+    font-weight:bold;
+    margin:0;
+    padding:0;
+}
+
+hr {
+    border:none;
+    border-top:1px solid #CCCCCC;
+    height:1px;
+    margin-bottom:25px;
+}
+
+a {
+    color: #C5C5C5;
+    text-decoration: none;
+}
+
+a:hover {
+    /*background: #900;*/
+    color: #FFF;
+}
+
+/* Root = Vertical, Secondary = Vertical */
+ul#navmenu,
+ul#navmenu li,
+ul#navmenu ul {
+    margin: 0;
+    border: 0 none;
+    padding: 0;
+    width: 200px; /*For KHTML*/
+    list-style: none;
+}
+
+ul#navmenu:after /*From IE 7 lack of compliance*/{
+    clear: both;
+    display: block;
+    font: 1px/0px serif;
+    content: ".";
+    height: 0;
+    visibility: hidden;
+}
+
+ul#navmenu li {
+    float: left; /*For IE 7 lack of compliance*/
+    display: block !important; /*For GOOD browsers*/
+    display: inline; /*For IE*/
+    position: relative;
+}
+
+/* Root Menu */
+ul#navmenu a {
+    border: 1px solid #781B18;
+    border-right-color: #C85E42;
+    border-bottom-color: #C85E42;
+    padding: 3px 6px;
+    display: block;
+    // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#aebcbf), color-stop(50%,#6e7774), color-stop(51%,#0a0e0a), color-stop(100%,#0a0809));
+
+    background: rgba(231,56,39,1);
+    background: -webkit-linear-gradient(top, rgba(153,28,6,1) 0%, rgba(160,33,14,1) 50%, rgba(133,20,5,1) 51%, rgba(134,23,9,1) 71%, rgba(129,24,14,1) 100%);    font: bold 10px/22px Verdana, Arial, Helvetica, sans-serif;
+    background: -moz-linear-gradient(top, rgba(153,28,6,1) 0%, rgba(160,33,14,1) 50%, rgba(133,20,5,1) 51%, rgba(134,23,9,1) 71%, rgba(129,24,14,1) 100%);    font: bold 10px/22px Verdana, Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color : #CCC;
+    height: 1%; /*For IE*/
+
+}
+
+/* Root Menu Hover Persistence */
+ul#navmenu a:hover,
+ul#navmenu li:hover a,
+ul#navmenu li.iehover a {
+    background:  -webkit-linear-gradient(top, rgba(249,112,88,1) 0%, rgba(244,144,128,1) 50%, rgba(248,72,48,1) 51%, rgba(242,80,58,1) 71%, rgba(235,85,71,1) 100%);
+    background:   -moz-linear-gradient(top, rgba(249,112,88,1) 0%, rgba(244,144,128,1) 50%, rgba(248,72,48,1) 51%, rgba(242,80,58,1) 71%, rgba(235,85,71,1) 100%);
+    color: #FFF;
+}
+
+/* 2nd Menu */
+ul#navmenu li:hover li a,
+ul#navmenu li.iehover li a {
+    background: -webkit-linear-gradient(top, rgba(153,28,6,1) 0%, rgba(160,33,14,1) 50%, rgba(133,20,5,1) 51%, rgba(134,23,9,1) 71%, rgba(129,24,14,1) 100%);    font: bold 10px/22px Verdana, Arial, Helvetica, sans-serif;
+    background: -moz-linear-gradient(top, rgba(153,28,6,1) 0%, rgba(160,33,14,1) 50%, rgba(133,20,5,1) 51%, rgba(134,23,9,1) 71%, rgba(129,24,14,1) 100%);    font: bold 10px/22px Verdana, Arial, Helvetica, sans-serif;
+    color: #CCC;
+}
+
+/* 2nd Menu Hover Persistence */
+ul#navmenu li:hover li a:hover,
+ul#navmenu li:hover li:hover a,
+ul#navmenu li.iehover li a:hover,
+ul#navmenu li.iehover li.iehover a {
+    background: -webkit-linear-gradient(top, rgba(249,112,88,1) 0%, rgba(244,144,128,1) 50%, rgba(248,72,48,1) 51%, rgba(242,80,58,1) 71%, rgba(235,85,71,1) 100%);
+    background: -moz-linear-gradient(top, rgba(249,112,88,1) 0%, rgba(244,144,128,1) 50%, rgba(248,72,48,1) 51%, rgba(242,80,58,1) 71%, rgba(235,85,71,1) 100%);
+
+    color: #FFF;
+}
+
+/* 3rd Menu */
+ul#navmenu li:hover li:hover li a,
+ul#navmenu li.iehover li.iehover li a {
+    background: #EEE;
+    color: #CCC;
+}
+
+/* 3rd Menu Hover Persistence */
+ul#navmenu li:hover li:hover li a:hover,
+ul#navmenu li:hover li:hover li:hover a,
+ul#navmenu li.iehover li.iehover li a:hover,
+ul#navmenu li.iehover li.iehover li.iehover a {
+    background: #CCC;
+    color: #FFF;
+}
+
+/* 4th Menu */
+ul#navmenu li:hover li:hover li:hover li a,
+ul#navmenu li.iehover li.iehover li.iehover li a {
+    background: #EEE;
+    color: #CCC;
+}
+
+/* 4th Menu Hover */
+ul#navmenu li:hover li:hover li:hover li a:hover,
+ul#navmenu li.iehover li.iehover li.iehover li a:hover {
+    background: #CCC;
+    color: #FFF;
+}
+
+ul#navmenu ul,
+ul#navmenu ul ul,
+ul#navmenu ul ul ul {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 200px;
+}
+
+/* Do Not Move - Must Come Before display:block for Gecko */
+ul#navmenu li:hover ul ul,
+ul#navmenu li:hover ul ul ul,
+ul#navmenu li.iehover ul ul,
+ul#navmenu li.iehover ul ul ul {
+    display: none;
+}
+
+ul#navmenu li:hover ul,
+ul#navmenu ul li:hover ul,
+ul#navmenu ul ul li:hover ul,
+ul#navmenu li.iehover ul,
+ul#navmenu ul li.iehover ul,
+ul#navmenu ul ul li.iehover ul {
+    display: block;
+}
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 0px;
+    border-color: grey;
+}

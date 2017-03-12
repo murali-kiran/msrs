@@ -2,31 +2,69 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <title>YMC</title>
+
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" media="screen"
-	href="../../css/style_new.css" th:href="@{/css/style_new.css}" />
+
+	<link rel="stylesheet" type="text/css" media="screen"
+	href="../../css/style_new.css" th:href="@{/css/styles.css}" />
 </head>
-<body>
-	<div>
+  
+	<!--<body>
+	 <div class="head_back">
 		<header th:replace="fragments/header :: header">
 			<p>This is default header area for default layout</p>
 		</header>
 	</div>
-	<div
-		style="width: 18%; height: auto; text-align: left; float: left; padding-left: 5px;">
-		<section id="menu" th:replace="fragments/menu :: menu">menu</section>
-	</div>
-	<div style="width: 70%; padding-top: 20px;" align="center">
-		<section id="content" layout:fragment="content">
-			<p>This is default main content with default layout</p>
-		</section>
-	</div>
-	<div
-		style="width: 100%; height: 20px; float: left; width: 100%; background-repeat: repeat-x; position: fixed; left: 0px; bottom: 0px;">
+ 	<div style="width:100%;display:inline;" class="body_back" >
+		<div style="width:200px;display:inline;" >
+			<section id="menu" th:replace="fragments/menu :: menu">menu</section>
+		</div>
+		<div style="width:600px;display:inline;" class="" align="center">
+			<section id="content" layout:fragment="content">
+				<p>This is default main content with default layout</p>
+			</section>
+		</div>
+	</div> 
+	
+	<div class="footer_back">
 		<footer th:replace="fragments/footer :: footer">
 			<p>This is default footer area for default layout</p>
 		</footer>
-	</div>
+	</div> -->
 
+
+
+<body onload="startTime()">
+<!-- <img src="../../images/back3.jpg" style="position:fixed;top:0px;left:0px;width:100%;height:100%;z-index:-1;" /> -->
+<table style="width:100%;border:0;overflow: hidden;" >
+	<tr background="../../images/header11.jpg" >
+		<td colspan="2" class="head_back" >
+		<header th:replace="fragments/header :: header">
+			<p>This is default header area for default layout</p>
+		</header>
+		</td>
+	</tr>
+	<tr>
+		<td width="14%" background="../../images/back12.jpg" class="menu_back">
+			<section id="menu" th:replace="fragments/menu :: menu">menu</section>
+		</td>
+		<td width="86%">
+			<div style="padding:3px;background:#CCC;border-spacing: 0px;border:0px;">Dashboard</div>
+			<section id="content" layout:fragment="content">
+				<p>This is default main content with default layout</p>
+			</section>
+		</td>
+	</tr>
+	<tr>
+		<td height="20" colspan="2" class="footer_back">
+			<footer th:replace="fragments/footer :: footer">
+				<p>This is default footer area for default layout</p>
+			</footer>
+		</td>
+	</tr>
+</table>
+
+<script src="../../js/msrs.js"></script>
 </body>
 </html>

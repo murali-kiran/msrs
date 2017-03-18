@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @author kiran
  */
 @SpringBootApplication
-@ComponentScan
+//@ComponentScan
 @EnableAutoConfiguration
 @EnableWebMvc
 @Configuration

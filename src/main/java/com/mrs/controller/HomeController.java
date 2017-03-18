@@ -6,6 +6,9 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.SortDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.mrs.model.Emp;
 import com.mrs.service.HomeService;
 
+
 @Controller
 @RequestMapping(value="/home")
 public class HomeController {
@@ -29,7 +33,7 @@ public class HomeController {
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/index.html")
     String all(Model model) {
-        model.addAttribute("emps", homeService.getAllEmployees());
+        //model.addAttribute("emps", homeService.getAllEmployees());
         return "index";
     }
 	@GetMapping(value = "/searchEmp")
@@ -39,8 +43,13 @@ public class HomeController {
         return "searchEmp";
     }
 	@PostMapping( value = "/searchEmp")
-    String getSearch(@ModelAttribute Emp emp, BindingResult bindingresult, Model model) {
-		model.addAttribute("emps", homeService.getAllEmployeesByEmp(emp));
+    String getSearch(@ModelAttribute Emp emp, BindingResult bindingresult, Model model, @SortDefault("firstname") Pageable pageable) {
+		//model.addAttribute("page", homeService.getAllEmployeesByEmp(emp,pageable));
+		
+		Page<Emp> empPage = homeService.getAllEmployees(pageable);
+        PageWrapper<Emp> page = new PageWrapper<Emp>(empPage, "/home/searchEmp");
+        model.addAttribute("emps", page.getContent());
+        model.addAttribute("page", page);
         return "searchEmp";
     }
 	@RequestMapping(value="/viewEmp",method = RequestMethod.GET)
@@ -49,9 +58,14 @@ public class HomeController {
 		return "viewEmp";
     }
 	@GetMapping( value = "/empList")
-    String getEmpList(@ModelAttribute Emp emp, BindingResult bindingresult, Model model) {
-		model.addAttribute("emps", homeService.getAllEmployees());
+    String getEmpList(@ModelAttribute Emp emp, BindingResult bindingresult, Model model, Pageable pageable) {
+	/*	model.addAttribute("emps", homeService.getAllEmployees());
+		model.addAttribute("emp", null);*/
 		model.addAttribute("emp", null);
+		Page<Emp> empPage = homeService.getAllEmployees(pageable);
+        PageWrapper<Emp> page = new PageWrapper<Emp>(empPage, "/home/empList");
+        model.addAttribute("emps", page.getContent());
+        model.addAttribute("page", page);
         return "searchEmp";
     }
 	@GetMapping(value = "/createEmp")

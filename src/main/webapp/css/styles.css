@@ -99,13 +99,19 @@ background:#606060;
     height:20px;
 }
 p .sub_panel:hover {
-	color:#FFF;
-   font-color: #FFF;
-   background:#C5C5C5;
+	color:#FFF !important;
+   font-color: #FFF !important;
+   background:#C5C5C5 !important;
 }
 p a {
-    font-color: #CCC;
-    text-decoration: none;
+    font-color: #CCC !important;
+    text-decoration: none !important; 
+    color: #C5C5C5 !important;
+}
+p a:hover {
+	color:#FFF !important;
+   font-color: #FFF !important;
+   /*background:#C5C5C5 !important;*/
 }
 .msrs-content{
 	height:555px;

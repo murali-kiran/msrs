@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.mrs.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,12 +23,13 @@ public class HomeRestController {
 	HomeService homeService;
 	
 	@RequestMapping(value="/all",method = RequestMethod.GET)
-    public List<Emp> all() {
-        return homeService.getAllEmployees();
+    public List<Emp> all(Pageable pageable) {
+        return (List<Emp>) homeService.getAllEmployees(pageable);
     }
 	@RequestMapping(value="/getEmps",method = RequestMethod.POST)
-    public List<Emp> getEmps(@RequestBody Emp emp) {
-        return homeService.getAllEmployeesByEmp(emp);
+    public List<Emp> getEmps(@RequestBody Emp emp,Pageable pageable ) {
+     //   return homeService.getAllEmployeesByEmp(emp);
+		 return (List<Emp>) homeService.getAllEmployees(pageable);
     }
 	@RequestMapping(value="/createEmp",method = RequestMethod.POST)
     public Emp createEmp(@RequestBody Emp emp) {

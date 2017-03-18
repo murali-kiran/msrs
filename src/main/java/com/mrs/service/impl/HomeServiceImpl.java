@@ -6,6 +6,8 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.mrs.model.BenefitType;
@@ -19,6 +21,8 @@ import com.mrs.repo.IncidentRepo;
 import com.mrs.repo.NomineeRepo;
 import com.mrs.repo.OfficeLocationRepo;
 import com.mrs.service.HomeService;
+
+//import scala.annotation.meta.setter;
 
 @Service
 public class HomeServiceImpl implements HomeService{
@@ -41,14 +45,14 @@ public class HomeServiceImpl implements HomeService{
 	OfficeLocationRepo officeLocationRepo;
 	
 	@Override
-	public List<Emp> getAllEmployees() {
-		return (List<Emp>) empRepo.findAll();
+	public Page<Emp> getAllEmployees(Pageable pageable) {
+		return empRepo.findAll(pageable);
 	}
 
 	@Override
-	public List<Emp> getAllEmployeesByEmp(Emp emp) {
+	public Page<Emp> getAllEmployeesByEmp(Emp emp,Pageable pageable) {
 		logger.info("find Employees by "+emp);
-		return (List<Emp>) empRepo.findAll();
+		return empRepo.findAll(pageable);
 	}
 	@Override
 	public Emp getEmpById(Integer empid) {
@@ -97,5 +101,5 @@ public class HomeServiceImpl implements HomeService{
 	public OfficeLocation getOfficeLocationById(Integer id) {
 		return officeLocationRepo.findOne(id);
 	}
-
+	
 }

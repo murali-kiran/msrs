@@ -6,22 +6,22 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins"/>
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
 <script type="text/javascript" src="../js/app.js"></script>
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
 <link rel="stylesheet" href="/resources/css/style_new.css" />
+
 <body>
 	<section layout:fragment="content">
 	
 <div class="msrs-content">
 
   <!-- Header -->
-  <div class="ymc-container" style="margin-top:20px" id="showcase">
+  <!-- <div class="ymc-container" style="margin-top:20px" id="showcase">
     <h1 class="ymc-jumbo"><b>Employee Insurance</b></h1>
-   
-  </div>
-  
-  
-
+  </div> -->
   <!-- Services -->
   <div class="ymc-container" id="services" style="margin-top:5px">
   <div th:if="${emp != null}">
@@ -40,9 +40,9 @@
     </form>
 	</div>
 	
-<div th:if="${!emps.empty}">
+<div th:if="${not #lists.isEmpty(emps)}" style="margin-right:100px;">
 	<h1 class="ymc-xxxlarge ymc-text-red"><b>Employee List</b></h1>
-	<table style="border:1px solid;">
+	<table style="border:1px solid;" id="tableData" class="table table-bordered table-striped">
 	<tr>
 		<!-- <th>ID</th> -->
 		<th>First Name</th>
@@ -52,24 +52,72 @@
 		<th>Phone</th>
 		<th>View</th>
 	</tr>
-	
-	
 
 	<tr th:each ="emp : ${emps}">
 		<!-- <td th:text ="${emp.empid}"></td> -->
-		<td th:text ="${emp.firstname}"></td>
+		<td scope="row" th:text ="${emp.firstname}"></td>
 		<td th:text ="${emp.lastname}"></td>
 		<td th:text ="${emp.dob}"></td>
 		<td th:text ="${emp.email}"></td>
 		<td th:text ="${emp.phone}"></td>
-		<td><a th:href="@{/home/viewEmp(empid=${emp.empid})}" style="color:white;">view</a></td>
+		<td><a th:href="@{/home/viewEmp(empid=${emp.empid})}" style="color:blue;">view</a></td>
 	</tr>
-	
 	</table>
+	
+	<!-- Pagination Bar -->
+    <div th:fragment='paginationbar'>
+        <div>
+            <ul class='pagination pagination-centered'>
+                <li th:class="${page.firstPage}?'disabled':''">
+                <span th:if='${page.firstPage}'>&#8592; First</span>
+                <a th:if='${not page.firstPage}' th:href='@{${page.url}(page=0,size=${page.size})}'>&#8592; First</a>
+                </li>
+                <li th:class="${page.hasPreviousPage}? '' : 'disabled'">
+                <span th:if='${not page.hasPreviousPage}'>«</span>
+                <a th:if='${page.hasPreviousPage}' th:href='@{${page.url}(page=${page.number-2},size=${page.size})}' title='Go to previous page'>«</a>
+                </li>
+                <li th:each='item : ${page.items}' th:class="${item.current}? 'active' : ''">
+                <span th:if='${item.current}' th:text='${item.number}'>1</span>
+                <a th:if='${not item.current}' th:href='@{${page.url}(page=${item.number-1},size=${page.size})}'><span th:text='${item.number}'>1</span></a>
+                </li>
+                <li th:class="${page.hasNextPage}? '' : 'disabled'">
+                <span th:if='${not page.hasNextPage}'>»</span>
+                <a th:if='${page.hasNextPage}' th:href='@{${page.url}(page=${page.number},size=${page.size})}' title='Go to next page'>»</a>
+                </li>
+                <li th:class="${page.lastPage}? 'disabled' : ''">
+                <span th:if='${page.lastPage}'>Last &rarr;</span>
+                <a th:if='${not page.lastPage}' th:href='@{${page.url}(page=${page.totalPages - 1},size=${page.size})}'>Last &rarr;</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+	
 	</div>
 	</div>
 	</div>
 	</section>
-</body>
+	
+	
 
+<!-- <script type="text/javascript">
+$.noConflict();
+jQuery(document).ready(function() {alert("qqqq");
+jQuery('#tableData').paging({limit:5});
+    });
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script> -->
+</body>
 </html>

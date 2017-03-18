@@ -1,16 +1,68 @@
-<configuration>
+<!-- <configuration>
 	<include resource="org/springframework/boot/logging/logback/base.xml" />
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+	
 	<springProfile name="dev">
 		<logger name="com.mrs.service" level="DEBUG" additivity="false">
 			<appender-ref ref="CONSOLE" />
+			<appender name="ROLLING-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        		<encoder>
+            		<pattern>${FILE_LOG_PATTERN}</pattern>
+        		</encoder>
+        		<file>${LOG_FILE}</file>
+        		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            	daily rollover
+            		<fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.log</fileNamePattern>
+        		</rollingPolicy>
+    		</appender>
 		</logger>
+		
+
 	</springProfile>
 	<springProfile name="production">
 		<logger name="com.mrs.service" level="WARN" additivity="false">
 			<appender-ref ref="CONSOLE" />
+			<appender name="ROLLING-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        		<encoder>
+            		<pattern>${FILE_LOG_PATTERN}</pattern>
+        		</encoder>
+        		<file>${LOG_FILE}</file>
+        		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            	daily rollover
+            		<fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.log</fileNamePattern>
+        		</rollingPolicy>
+    		</appender>
 		</logger>
 	</springProfile>
 	<root level="INFO">
 		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="ROLLING-FILE" />
 	</root>
+</configuration> -->
+
+
+
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${target.tmpdir:-/tmp}}/}spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <appender name="ROLLING-FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${LOG_FILE}.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ROLLING-FILE"/>
+    </root>
+
 </configuration>
